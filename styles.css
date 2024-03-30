@@ -253,11 +253,6 @@ small {font-size: 0.750rem; /* 12px */}
     object-position: 0px 60%;
 }
 
-.text{
-    color: red;
-    border: 10px solid red;
-}
-
 .footer{
     background-color: var(--background);
     height:294px;
@@ -369,4 +364,21 @@ small {font-size: 0.750rem; /* 12px */}
 
 #prod-name{
     color:var(--text);
+}
+
+/* styles for nav */
+
+#to-aboutUs{
+    font-size: 10px;
+    font-family: 'Aleo';
+    font-weight: 700;
+    outline:none;
+    border:none;
+    align-self: center;
+    border-radius: 5px;
+    color:var(--background);
+    cursor:pointer;
+}
+#to-aboutUs:hover{
+    transform: scale(1.1);
 }

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The Jar</title>
+        <title>The Jar: About Us</title>
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="morestyles.css">
         <script type="module" src="app.js"></script>
@@ -26,7 +26,7 @@
                         <a class="nav-buttons" href="./aboutUs.html"> <h5>ABOUT US</h5></a>
                     </div>
                 </div>
-                
+
                 <!-- right menu items with basket and fake profile -->
                 <div class="profile-checkout">
 
@@ -38,39 +38,13 @@
                     <a class="profile" href="/"></a>
                 </div>
             </div>
-            <!-- content of page -->
-            <div id="page-content">
-                <!-- welcome -->
-                <div class="marquee-showcase">
-                    <h1 class = "center-callout"> NEW CREATIONS</h1>
-                    <div class="carousel-container">
-                        <img class="carousel-image" src= "images/Terrarium Plants/terrarium (1).jpg">
-                    </div>
-                </div>
 
-                <!-- products -->
-                <div class="products-area">
-                    <h1 style="text-align:center">The 2024 Release</h1>
-                    <div class="product-grid" id="product-container">
-                        <!-- <div class="product-container" >
-                            <h4 id="prod-price">₱500</h4>
-                            <img id="prod-pic" src="/images/Terrarium Plants/terrarium (2).jpg" style="width: 384px; height: 335px; object-fit: cover;">
-                            <h3 id="prod-name">Product Name</h3>
-                            <div class="add-to-cart">ADD TO CART</div>
-                            <h5 id="quantity-left">7 left</h5> 
-                        </div> -->
-
-                    </div>
-                </div>
-            </div>
-            <!-- second section -->
-            <div class="looking-for-more">
-                <div class="to-action">
-                    <h4>Looking for Something Special?</h4>
-                    <p>Contact our specialist botanist and get a quote for your very own custom terrarium.</p>
-                    <button class="contactbtn"><h4>CONTACT SPECIALIST</h4></button>
-                </div>
-                <div class="custom-order"><img class="img" src="/images/making-terrarium.jpg" alt=""></div>
+            <div class="container">
+                <h1>Cart Checkout</h1>
+                <div id="cart-items" class="cart-items"></div>
+                <div class="subtotal">Subtotal: ₱<span id="subtotal"></span></div>
+                <div class="balance">Remaining Balance: ₱<span id="balance"></span></div>
+                <div class="finalize-purchase">Checkout</div>
             </div>
             
             <!-- footer -->

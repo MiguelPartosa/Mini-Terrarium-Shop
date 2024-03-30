@@ -14,6 +14,7 @@ export function createProductContainer(product) {
     img.style.objectFit = "cover";
 
     const name = document.createElement("h3");
+    name.style.textAlign = "center";
     name.textContent = product.name;
 
     const addToCart = document.createElement("div");

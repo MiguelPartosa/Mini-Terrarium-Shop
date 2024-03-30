@@ -1,3 +1,7 @@
+import { saveData } from "./app.js";
+import { populateCartItems } from "./app.js";
+import { Products } from "./app.js";
+
 class Product {
     // for demo purposes, the quanitity available will be randomly declared in the iniitalization of the product
     constructor(name, price, imageSrc) {
@@ -11,8 +15,8 @@ class Product {
 }
 
 class ProductDatabase {
-    constructor() {
-        this.productList = [];
+    constructor(data = null) {
+        this.productList = data ? data.productList : [];
     }
 
     randomId() {
@@ -27,6 +31,12 @@ class ProductDatabase {
     add(product) {
         product.id = this.randomId();
         this.productList.push(product);
+    }
+
+    reStock(productId, quantity) {
+        const product = this.find(productId);
+        product.quantityAvailable += quantity;
+        console.log("quantity return:", product.quantityAvailable);
     }
 
     // utility for updating quantity method
@@ -46,10 +56,24 @@ class ProductDatabase {
 
 // to simplify, i merged the userbalance and the cart items into one class
 class Cart {
-    constructor() {
-        this.balance = 9500;
-        this.cartList = [];
-        this.subTotal = 0;
+    constructor(data = null) {
+        if (data) {
+            this.setData(data);
+        } else {
+            this.balance = 0;
+            this.cartList = [];
+            this.subTotal = 0;
+        }
+    }
+
+    setBalance(balance) {
+        this.balance = balance;
+    }
+
+    setData(data) {
+        this.balance = data.balance || 0;
+        this.cartList = data.cartList || [];
+        this.subTotal = data.subTotal || 0;
     }
 
     add(product) {
@@ -67,20 +91,38 @@ class Cart {
     find(id) {
         return this.cartList.find((product) => product.id === id);
     }
-    remove(product) {
 
+    deduct(productId) {
+        const productsToRemove = this.cartList.filter(product => product.id === productId);
+        productsToRemove.forEach(productToRemove => {
+            Products.reStock(productToRemove.id, productToRemove.quantity);
+            const index = this.cartList.indexOf(productToRemove);
+            if (index !== -1) {
+                this.cartList.splice(index, 1);
+                this.subTotal -= productToRemove.price * productToRemove.quantity;
+            }
+        });
+        saveData();
+        populateCartItems();
     }
+
 
     purchase() {
         if (this.subTotal > this.balance) {
-            console.log("not enough moneys ");
+            alert("insufficient funds");
             return false
         }
         else {
+            location.reload();
+            alert('Order successfully added');
             this.balance -= this.subTotal;
             this.cartList = [];
+            this.subTotal = 0;
+            saveData();
+            populateCartItems();
             return true;
         }
+
     }
 }
 
