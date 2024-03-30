@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title></title>
         <link rel="stylesheet" href="styles.css">
-        <script src="app.js"></script>
+        <script type="module" src="app.js"></script>
     </head>
     <body>
         <div class="first-section">
@@ -47,15 +47,15 @@
 
             <!-- products -->
             <div class="products-area">
-                <h1>The 2024 Release</h1>
-                <div class="product-grid">
-                    <div class="product-container">
+                <h1 style="text-align:center">The 2024 Release</h1>
+                <div class="product-grid" id="product-container">
+                    <!-- <div class="product-container" >
                         <h4 id="prod-price">₱500</h4>
                         <img id="prod-pic" src="/images/Terrarium Plants/terrarium (2).jpg" style="width: 384px; height: 335px; object-fit: cover;">
                         <h3 id="prod-name">Product Name</h3>
                         <div class="add-to-cart">ADD TO CART</div>
                         <h5 id="quantity-left">7 left</h5> 
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
@@ -85,7 +85,7 @@
                         </a>
 
                         <a class="link">About Us</a>
-                        <a class="link">Silliman University</a>
+                        <button class="reset-button">Reset Database Here!</button>
                     </div>
                     <div class="footer-line"/>
                     <h6 style="text-align:center; color:var(--background)">2024</h6>
